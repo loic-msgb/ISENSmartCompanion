@@ -1,12 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    id("com.android.application") version "8.8.2"
+    id("org.jetbrains.kotlin.android") version "2.1.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "fr.isen.missigbeto.isensmartcompanion"
     compileSdk = 35
+    compileSdkVersion = "android-35"
+
 
     defaultConfig {
         applicationId = "fr.isen.missigbeto.isensmartcompanion"
@@ -37,6 +41,10 @@ android {
     buildFeatures {
         compose = true
     }
+    // Ajoutez cette configuration pour éviter les problèmes de compilation
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"  // Compatible avec Kotlin 1.9.22
+    }
 }
 
 dependencies {
@@ -48,7 +56,17 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.generativeai)
+    implementation(libs.androidx.room.runtime)  // La version stable la plus récente
+    ksp("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.room.ktx) // KTX pour les extensions Kotlin
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
