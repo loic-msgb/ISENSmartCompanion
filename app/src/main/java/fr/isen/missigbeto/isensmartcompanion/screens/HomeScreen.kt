@@ -36,7 +36,7 @@ fun MainScreen(innerPadding: PaddingValues, db: AppDatabase) {
     val generativeModel = remember {
         GenerativeModel(
             modelName = "gemini-1.5-flash",
-            apiKey = "AIzaSyDsogGv204hsZdWeoZwdDWcBAx3Hcd87Xk"
+            apiKey = ""
         )
     }
 
